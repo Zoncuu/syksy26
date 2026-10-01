@@ -14,7 +14,7 @@
             "path": "CSS-26",
             "description": "Tyylit, asettelut, responsiivisuus ja visuaaliset harjoitukset.",
             "available": true,
-            "pageCount": 3
+            "pageCount": 6
         },
         {
             "id": "javascript",
@@ -441,12 +441,6 @@
             "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
         },
         {
-            "title": "Autopeli",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/autopeli.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
-        },
-        {
             "title": "Canva-esimerkki",
             "course": "html",
             "courseName": "HTML-26",
@@ -535,6 +529,33 @@
             "path": "CSS-26/tunti-harjoitukset/osio_04/index.html",
             "relativePath": "tunti-harjoitukset/osio_04/index.html",
             "folder": "CSS-26/tunti-harjoitukset/osio_04"
+        },
+        {
+            "title": "Positioharjoitus",
+            "course": "css",
+            "courseName": "CSS-26",
+            "source": "Tunti harjoitukset",
+            "path": "CSS-26/tunti-harjoitukset/osio_04/positio.html",
+            "relativePath": "tunti-harjoitukset/osio_04/positio.html",
+            "folder": "CSS-26/tunti-harjoitukset/osio_04"
+        },
+        {
+            "title": "Värijäjestelmä | Harjoitus 1",
+            "course": "css",
+            "courseName": "CSS-26",
+            "source": "Tunti harjoitukset",
+            "path": "CSS-26/tunti-harjoitukset/osio_09/harjoitus1.html",
+            "relativePath": "tunti-harjoitukset/osio_09/harjoitus1.html",
+            "folder": "CSS-26/tunti-harjoitukset/osio_09"
+        },
+        {
+            "title": "Virheenetsintä | Harjoitus 2",
+            "course": "css",
+            "courseName": "CSS-26",
+            "source": "Tunti harjoitukset",
+            "path": "CSS-26/tunti-harjoitukset/osio_09/harjoitus2.html",
+            "relativePath": "tunti-harjoitukset/osio_09/harjoitus2.html",
+            "folder": "CSS-26/tunti-harjoitukset/osio_09"
         }
     ]
 }
