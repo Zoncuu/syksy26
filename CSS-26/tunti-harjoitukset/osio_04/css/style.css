@@ -1,0 +1,190 @@
+:root {
+    /* Colors */
+    --page-background-color: #F3F8FC;
+    --primary-color: #192BC2;
+    --primary-dark-color: #150578;
+    --secondary-color: #449DD1;
+    --surface-color: #78C0E0;
+    --text-color: #0E0E52;
+
+    /* Font families */
+    --font-primary: Arial, Helvetica, sans-serif;
+
+    /* Font sizes */
+    --font-size-small: 0.875rem;
+    --font-size-normal: 1rem;
+    --font-size-large: 1.25rem;
+    --font-size-h3: 1.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h1: 2.5rem;
+
+    /* Font weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    /* Line heights */
+    --line-height-normal: 1.5;
+    --line-height-heading: 1.2;
+}
+
+
+/* Body */
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
+
+    color: var(--text-color);
+    background-color: var(--page-background-color);
+}
+
+
+/* Headings */
+
+h1 {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading);
+
+    text-align: center;
+    letter-spacing: -0.03em;
+
+    background: linear-gradient(
+        90deg,
+        var(--primary-dark-color),
+        var(--primary-color),
+        var(--secondary-color),
+        var(--primary-color),
+        var(--primary-dark-color)
+    );
+
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    margin-bottom: 30px;
+
+    animation: gradientMove 6s ease-in-out infinite;
+}
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading);
+}
+
+
+/* Harjoitusalue */
+
+.harjoitus {
+    display: block;
+
+    width: 80%;
+    margin: 0 auto 10px auto;
+    padding: 20px;
+
+    line-height: var(--line-height-normal);
+
+    background-color: var(--surface-color);
+    border-radius: 10px;
+}
+
+
+/* Inline */
+
+.luokka1 {
+    display: inline;
+
+    width: 100px;
+    height: 50px;
+
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+}
+
+
+/* Block */
+
+.luokka2 {
+    display: block;
+
+    width: 100px;
+    height: 50px;
+    margin: 0 auto 10px auto;
+
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+}
+
+
+/* Inline-block */
+
+.luokka3 {
+    display: inline-block;
+
+    width: 100px;
+    height: 50px;
+
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+}
+
+
+/* Navigation */
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+nav ul li {
+    width: fit-content;
+    padding: 10px;
+
+    background-color: var(--primary-dark-color);
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+nav a {
+    color: var(--page-background-color);
+    text-decoration: none;
+}
+
+nav ul li:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.02);
+}
+
+nav ul li:hover a {
+    text-decoration: underline;
+}

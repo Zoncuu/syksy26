@@ -5,8 +5,9 @@ on:
         branches:
             - main
         paths:
-            - "**/*.html"
-            - "tunti-harjoitukset/pages/osio_*/README.md"
+            - "HTML-26/**/*.html"
+            - "CSS-26/**/*.html"
+            - "JavaScript-26/**/*.html"
             - "main/generate-archive.mjs"
             - ".github/workflows/update-archive.yml"
     workflow_dispatch:

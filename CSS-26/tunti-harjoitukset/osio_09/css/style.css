@@ -1,0 +1,94 @@
+:root {
+  --color-tausta: #f1f5f9;
+  --color-kortti: #ffffff;
+  --color-text: #0f172a;
+  --color-korostus: #1d4ed8;
+  --color-virhe: #b91c1c;
+}
+/* Tumma teema */
+[data-theme="dark"] {
+  --color-tausta: #0f172a;
+  --color-kortti: #1e293b;
+  --color-text: #f1f5f9;
+  --color-korostus: #93c5fd;
+  --color-virhe: #fca5a5;
+}
+
+body {
+  background-color: var(--color-tausta);
+  color: var(--color-text);
+  font-family: Arial, sans-serif;
+  padding: 24px;
+}
+
+.kortti {
+  background-color: var(--color-kortti);
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 400px;
+}
+
+.painike {
+  background-color: var(--color-korostus);
+  color: var(--color-kortti);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+}
+
+.ilmoitus {
+  background-color: var(--color-kortti);
+  color: var(--color-virhe);
+  border-left: 4px solid var(--color-virhe);
+  padding: 16px;
+}
+
+
+
+
+.hero {
+  background-color: #0f172a;
+
+  background-image:
+    linear-gradient(
+      rgb(0 0 0 / 0.30),
+      rgb(0 0 0 / 0.95)
+    ),
+    url(../../../assets/tausta-jarvimaisema.png);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #ffffff;
+  text-align: center;
+  padding: 80px 24px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.hero p {
+  margin: 0 0 24px;
+}
+
+.painike {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.painike:hover {
+  text-decoration: underline;
+}
+
+#sisalto {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: 24px;
+}

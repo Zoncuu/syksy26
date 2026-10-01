@@ -17,7 +17,7 @@
     >
 
     <!--TITLE-->
-    <title>HTML26 | Ohjelmointi</title>
+    <title>Ohjelmointi 2026 | Joel Tyni</title>
 
     <!--ICON-->
     <link
@@ -28,12 +28,12 @@
     <!--CSS-->
     <link
         rel="stylesheet"
-        href="CSS/style.css?v=7"
+        href="main/css/style.css?v=2"
     >
 
     <!--JAVASCRIPT-->
     <script
-        src="main/app.js?v=2"
+        src="main/app.js?v=3"
         defer
     ></script>
 </head>
@@ -57,7 +57,7 @@
                     href="https://github.com/Zoncuu/HTML26"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Avaa HTML26 GitHub-repository"
+                    aria-label="Avaa ohjelmointikurssien GitHub-repository"
                 >
                     <svg
                         viewBox="0 0 24 24"
@@ -72,9 +72,9 @@
                 <a
                     class="brand-copy"
                     href="#alku"
-                    aria-label="HTML26 – etusivu"
+                    aria-label="Ohjelmointi 2026 – etusivu"
                 >
-                    <strong>HTML26</strong>
+                    <strong>OHJELMOINTI26</strong>
                     <small>Zoncuu / Joel Tyni</small>
                 </a>
             </div>
@@ -88,7 +88,7 @@
                 aria-label="Avaa Keudan verkkosivut"
             >
                 <img
-                    src="main/images/Keuda_logo.png"
+                    src="main/images/keuda_logo.png"
                     alt="Keuda"
                 >
                 <span>Tieto- ja viestintätekniikka, Ohjelmistokehittäjä</span>
@@ -121,7 +121,7 @@
             >
                 Etusivu
             </a>
-            <a href="#harjoitukset">Harjoitukset</a>
+            <a href="#harjoitukset">Kurssit</a>
             <a href="#teknologiat">Teknologiat</a>
             <a
                 class="nav-cta"
@@ -238,7 +238,7 @@
                     </div>
 
                     <img
-                        src="main/images/Keuda_logo.png"
+                        src="main/images/keuda_logo.png"
                         alt="Keuda"
                     >
                 </div>
@@ -255,7 +255,7 @@
                         <span>index.html</span>
                     </div>
 
-                    <pre><code><span class="code-muted">&lt;!-- Keuda / HTML26 --&gt;</span>
+                    <pre><code><span class="code-muted">&lt;!-- Keuda / Ohjelmointi 2026 --&gt;</span>
 <span class="code-blue">&lt;main</span> <span class="code-cyan">data-student</span>=<span class="code-green">"zoncuu"</span><span class="code-blue">&gt;</span>
   <span class="code-blue">&lt;h1&gt;</span><span class="code-purple">Joelin</span> <span class="code-yellow">harjoitukset</span><span class="code-blue">&lt;/h1&gt;</span>
   <span class="code-blue">&lt;p&gt;</span>HTML · CSS · JavaScript<span class="code-blue">&lt;/p&gt;</span>
@@ -280,7 +280,7 @@
             </aside>
         </section>
 
-        <!--PROJECTS-->
+        <!--COURSES-->
         <section
             class="section"
             id="harjoitukset"
@@ -291,79 +291,88 @@
                 <div>
                     <p class="eyebrow">
                         <span aria-hidden="true"></span>
-                        Repositoryn sisältö
+                        Valitse kurssi
                     </p>
-                    <h2 id="projects-title">Harjoitukset ja projektit</h2>
+                    <h2 id="projects-title">Kurssit ja harjoitukset</h2>
                 </div>
 
                 <p>
-                    Täältä löytyvät tunneilla ja tehtävänannoissa tehdyt harjoitukset sekä mahdolliset myöhemmät projektit.
+                    Avaa kurssi ja selaa sen kansioita, alikansioita sekä kaikkia valmiita harjoitussivuja.
                 </p>
             </div>
 
-            <!--PROJECT CARDS-->
+            <!--COURSE CARDS-->
             <div class="project-grid">
-                <!--LESSON EXERCISES-->
-                <article class="project-card">
+                <!--HTML COURSE-->
+                <article class="project-card course-card course-card-html">
                     <div class="card-number">01</div>
 
                     <div class="card-content">
-                        <span class="card-label">Kurssin harjoitukset</span>
-                        <h3>Tunti harjoitukset</h3>
+                        <span class="card-label">Rakenne ja sisältö</span>
+                        <h3>HTML-26</h3>
                         <p>
-                            Oppitunneilla tehdyt HTML-, CSS- ja JavaScript-harjoitukset.
+                            HTML-rakenteet, semantiikka, lomakkeet, media sekä tunti- ja Pinja-harjoitukset.
                         </p>
+                        <span class="card-status"><strong data-course-count="html">—</strong> harjoitussivua</span>
                     </div>
 
                     <a
                         class="card-link"
                         href="#kaikki-sivut"
-                        data-archive-filter="tunti"
-                        aria-label="Näytä tuntiharjoitukset kurssin arkistossa"
+                        data-course-filter="html"
+                        aria-label="Selaa HTML-26-kurssin sisältöä"
                     >
-                        Näytä arkistossa
+                        Selaa HTML-26
                         <span aria-hidden="true">↓</span>
                     </a>
                 </article>
 
-                <!--PINJA EXERCISES-->
-                <article class="project-card">
+                <!--CSS COURSE-->
+                <article class="project-card course-card course-card-css">
                     <div class="card-number">02</div>
 
                     <div class="card-content">
-                        <span class="card-label">Tehtävänannot</span>
-                        <h3>Pinja Harjoitukset</h3>
+                        <span class="card-label">Tyyli ja ulkoasu</span>
+                        <h3>CSS-26</h3>
                         <p>
-                            Pinjan antamat harjoitukset ja erilliset tehtäväkokonaisuudet.
+                            CSS-perusteet, visuaaliset harjoitukset ja FreeCodeCamp-tehtävät kansioineen.
                         </p>
+                        <span class="card-status"><strong data-course-count="css">—</strong> harjoitussivua</span>
                     </div>
 
                     <a
                         class="card-link"
                         href="#kaikki-sivut"
-                        data-archive-filter="pinja"
-                        aria-label="Näytä Pinja-harjoitukset kurssin arkistossa"
+                        data-course-filter="css"
+                        aria-label="Selaa CSS-26-kurssin sisältöä"
                     >
-                        Näytä arkistossa
+                        Selaa CSS-26
                         <span aria-hidden="true">↓</span>
                     </a>
                 </article>
 
-                <!--PROJECTS-->
-                <article class="project-card">
+                <!--JAVASCRIPT COURSE-->
+                <article class="project-card course-card course-card-js">
                     <div class="card-number">03</div>
 
                     <div class="card-content">
                         <span class="card-label">Tulossa myöhemmin</span>
-                        <h3>Projektit</h3>
+                        <h3>JavaScript-26</h3>
                         <p>
-                            Projekteja ei ole vielä tehty.
+                            JavaScript-harjoitukset ilmestyvät automaattisesti, kun kurssikansio luodaan.
                         </p>
+                        <span class="card-status"><strong data-course-count="javascript">0</strong> harjoitussivua</span>
                     </div>
 
-                    <div class="card-link card-link-muted">
-                        Ei projekteja vielä
-                    </div>
+                    <a
+                        class="card-link"
+                        href="#kaikki-sivut"
+                        data-course-filter="javascript"
+                        aria-label="Tarkastele tulevan JavaScript-26-kurssin sisältöä"
+                    >
+                        Tarkastele kurssia
+                        <span aria-hidden="true">↓</span>
+                    </a>
                 </article>
             </div>
         </section>
@@ -379,9 +388,9 @@
                 <div>
                     <p class="eyebrow">
                         <span aria-hidden="true"></span>
-                        Kurssin arkisto
+                        Kurssiselain
                     </p>
-                    <h2 id="library-title">Tehdyt harjoitukset</h2>
+                    <h2 id="library-title">Kansiot ja harjoitukset</h2>
                 </div>
 
                 <!--SEARCH-->
@@ -390,13 +399,13 @@
                         class="sr-only"
                         for="page-search"
                     >
-                        Hae harjoitussivuja
+                        Hae kursseista ja harjoituksista
                     </label>
                     <span aria-hidden="true">⌕</span>
                     <input
                         id="page-search"
                         type="search"
-                        placeholder="Hae sivua..."
+                        placeholder="Hae kurssia, kansiota tai sivua..."
                         autocomplete="off"
                     >
                     <kbd>Ctrl K</kbd>
@@ -412,23 +421,30 @@
                 <button
                     class="filter-button is-active"
                     type="button"
-                    data-filter="kaikki"
+                    data-course="kaikki"
                 >
-                    Kaikki
+                    Kaikki kurssit
                 </button>
                 <button
                     class="filter-button"
                     type="button"
-                    data-filter="tunti"
+                    data-course="html"
                 >
-                    Tunti harjoitukset
+                    HTML-26
                 </button>
                 <button
                     class="filter-button"
                     type="button"
-                    data-filter="pinja"
+                    data-course="css"
                 >
-                    Pinja Harjoitukset
+                    CSS-26
+                </button>
+                <button
+                    class="filter-button"
+                    type="button"
+                    data-course="javascript"
+                >
+                    JavaScript-26
                 </button>
                 <span
                     class="result-count"

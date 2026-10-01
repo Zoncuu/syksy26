@@ -4,20 +4,41 @@ import { fileURLToPath } from "node:url";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const outputFile = resolve(projectRoot, "main", "pages.json");
-const lessonPagesDirectory = resolve(projectRoot, "tunti-harjoitukset", "pages");
-const ignoredDirectories = new Set([".git", ".github", "CSS", "main", "node_modules"]);
+const ignoredDirectories = new Set([".git", ".github", "main", "node_modules"]);
 const ignoredHtmlFiles = new Set([
-    "index.html",
-    "pinja-harjoitukset/index.html"
+    "HTML-26/pinja-harjoitukset/index.html"
 ]);
-const groupNames = {
-    "tunti-harjoitukset": "tunti",
-    "pinja-harjoitukset": "pinja",
-    projektit: "projektit"
-};
+const courseDefinitions = [
+    {
+        id: "html",
+        name: "HTML-26",
+        path: "HTML-26",
+        description: "HTML-rakenteet, semantiikka, lomakkeet ja multimediasisällöt."
+    },
+    {
+        id: "css",
+        name: "CSS-26",
+        path: "CSS-26",
+        description: "Tyylit, asettelut, responsiivisuus ja visuaaliset harjoitukset."
+    },
+    {
+        id: "javascript",
+        name: "JavaScript-26",
+        path: "JavaScript-26",
+        description: "Vuorovaikutus, ohjelmointilogiikka ja dynaamiset sivut."
+    }
+];
 
 async function findHtmlFiles(directory) {
-    const entries = await readdir(directory, { withFileTypes: true });
+    let entries;
+
+    try {
+        entries = await readdir(directory, { withFileTypes: true });
+    } catch (error) {
+        if (error.code === "ENOENT") return [];
+        throw error;
+    }
+
     const files = [];
 
     for (const entry of entries) {
@@ -48,9 +69,9 @@ function decodeTitle(value) {
 }
 
 function fallbackTitle(filePath) {
-    const fileName = filePath.split("/").at(-1).replace(/\.html$/i, "");
-    const parentName = filePath.split("/").at(-2);
-    const sourceName = fileName === "index" ? parentName : fileName;
+    const parts = filePath.split("/");
+    const fileName = parts.at(-1).replace(/\.html$/i, "");
+    const sourceName = fileName === "index" ? parts.at(-2) : fileName;
 
     return sourceName
         .replaceAll("_", " ")
@@ -58,73 +79,64 @@ function fallbackTitle(filePath) {
         .replace(/^./, (letter) => letter.toLocaleUpperCase("fi"));
 }
 
-function groupFor(filePath) {
-    const topDirectory = filePath.split("/")[0];
-    return groupNames[topDirectory] || topDirectory;
-}
+function sourceFor(relativePath) {
+    const topDirectory = relativePath.split("/")[0];
+    const names = {
+        "tunti-harjoitukset": "Tunti harjoitukset",
+        "pinja-harjoitukset": "Pinja-harjoitukset",
+        "CSS-freecodecamp": "FreeCodeCamp",
+        projektit: "Projektit"
+    };
 
-function readableFolderName(folderName) {
-    const sectionMatch = folderName.match(/^osio_(\d+)$/i);
-
-    if (sectionMatch) {
-        return `Osio ${Number(sectionMatch[1])}`;
-    }
-
-    return folderName
+    return names[topDirectory] || topDirectory
         .replaceAll("_", " ")
         .replaceAll("-", " ")
         .replace(/^./, (letter) => letter.toLocaleUpperCase("fi"));
 }
 
-async function findLessonSections() {
-    const entries = await readdir(lessonPagesDirectory, { withFileTypes: true });
-
-    return entries
-        .filter((entry) => entry.isDirectory() && /^osio_\d+$/i.test(entry.name))
-        .map((entry) => ({
-            name: entry.name,
-            label: readableFolderName(entry.name),
-            path: relative(projectRoot, resolve(lessonPagesDirectory, entry.name)).split(sep).join("/")
-        }))
-        .sort((first, second) => (
-            Number(first.name.match(/\d+/)?.[0] || 0)
-            - Number(second.name.match(/\d+/)?.[0] || 0)
-        ));
-}
-
-const htmlFiles = await findHtmlFiles(projectRoot);
 const pages = [];
+const courses = [];
 
-for (const absolutePath of htmlFiles) {
-    const filePath = relative(projectRoot, absolutePath).split(sep).join("/");
+for (const definition of courseDefinitions) {
+    const courseRoot = resolve(projectRoot, definition.path);
+    const htmlFiles = await findHtmlFiles(courseRoot);
+    let pageCount = 0;
 
-    const isPinjaPage = filePath.startsWith("pinja-harjoitukset/pages/");
-    const isOutsidePinjaPages = filePath.startsWith("pinja-harjoitukset/") && !isPinjaPage;
+    for (const absolutePath of htmlFiles) {
+        const filePath = relative(projectRoot, absolutePath).split(sep).join("/");
 
-    if (ignoredHtmlFiles.has(filePath) || isOutsidePinjaPages) continue;
+        if (ignoredHtmlFiles.has(filePath)) continue;
 
-    const html = await readFile(absolutePath, "utf8");
-    const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-    const headingMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-    const title = decodeTitle(titleMatch?.[1] || headingMatch?.[1] || fallbackTitle(filePath));
+        const relativePath = relative(courseRoot, absolutePath).split(sep).join("/");
+        const html = await readFile(absolutePath, "utf8");
+        const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+        const headingMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+        const title = decodeTitle(titleMatch?.[1] || headingMatch?.[1] || fallbackTitle(relativePath));
 
-    pages.push({
-        title,
-        group: groupFor(filePath),
-        path: filePath,
-        folder: dirname(filePath).split(sep).join("/")
+        pages.push({
+            title,
+            course: definition.id,
+            courseName: definition.name,
+            source: sourceFor(relativePath),
+            path: filePath,
+            relativePath,
+            folder: dirname(filePath).split(sep).join("/")
+        });
+        pageCount += 1;
+    }
+
+    courses.push({
+        ...definition,
+        available: htmlFiles.length > 0,
+        pageCount
     });
 }
 
 pages.sort((first, second) => (
-    first.group.localeCompare(second.group, "fi")
-    || first.path.localeCompare(second.path, "fi")
+    courseDefinitions.findIndex((course) => course.id === first.course)
+    - courseDefinitions.findIndex((course) => course.id === second.course)
+    || first.relativePath.localeCompare(second.relativePath, "fi", { numeric: true })
 ));
 
-const archive = {
-    pages,
-    lessonSections: await findLessonSections()
-};
-
-await writeFile(outputFile, `${JSON.stringify(archive, null, 4)}\n`, "utf8");
-console.log(`Kurssiarkistoon lisättiin ${pages.length} HTML-sivua.`);
+await writeFile(outputFile, `${JSON.stringify({ courses, pages }, null, 4)}\n`, "utf8");
+console.log(`Kurssiarkistoon lisättiin ${pages.length} HTML-sivua ${courses.length} kurssista.`);

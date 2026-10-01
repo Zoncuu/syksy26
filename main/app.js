@@ -1,12 +1,14 @@
 let pages = [];
-let lessonSections = [];
+let courses = [];
+let activeCourse = "kaikki";
+let scrollFrame;
 
 const list = document.querySelector("#page-list");
 const search = document.querySelector("#page-search");
 const resultCount = document.querySelector(".result-count");
 const emptyState = document.querySelector("#empty-state");
 const filterButtons = [...document.querySelectorAll(".filter-button")];
-const archiveFilterLinks = [...document.querySelectorAll("[data-archive-filter]")];
+const courseLinks = [...document.querySelectorAll("[data-course-filter]")];
 const menuButton = document.querySelector(".menu-button");
 const menuLabel = menuButton.querySelector(".sr-only");
 const mainNav = document.querySelector(".main-nav");
@@ -14,24 +16,9 @@ const siteHeader = document.querySelector(".site-header");
 const navLinks = [...mainNav.querySelectorAll('a[href^="#"]')];
 const anchorLinks = [...document.querySelectorAll('a[href^="#"]')];
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-let activeFilter = "kaikki";
-let scrollFrame;
 
-function readableGroup(group) {
-    const names = {
-        tunti: "Tunti harjoitukset",
-        pinja: "Pinja Harjoitukset",
-        projektit: "Projektit"
-    };
-
-    return names[group] || group
-        .replaceAll("-", " ")
-        .replace(/^./, (letter) => letter.toLocaleUpperCase("fi"));
-}
-
-function readableFolderName(folderPath) {
-    const folderName = folderPath.split("/").at(-1) || folderPath;
-    const sectionMatch = folderName.match(/^osio_(\d+)$/i);
+function readableFolderName(folderName) {
+    const sectionMatch = folderName.match(/^osio_0?(\d+)$/i);
 
     if (sectionMatch) {
         return `Osio ${Number(sectionMatch[1])}`;
@@ -43,48 +30,37 @@ function readableFolderName(folderPath) {
         .replace(/^./, (letter) => letter.toLocaleUpperCase("fi"));
 }
 
-function folderForPage(page) {
-    return page.folder || page.path.split("/").slice(0, -1).join("/");
-}
-
 function matchesSearch(page, query) {
-    return `${page.title} ${page.path} ${readableGroup(page.group)}`
+    return `${page.title} ${page.courseName} ${page.source} ${page.relativePath}`
         .toLocaleLowerCase("fi")
         .includes(query);
 }
 
-async function loadPages() {
-    try {
-        const response = await fetch("main/pages.json", { cache: "no-store" });
+function createTree(coursePages) {
+    const root = { folders: new Map(), pages: [] };
 
-        if (!response.ok) {
-            throw new Error("Arkistoluetteloa ei löytynyt.");
-        }
+    coursePages.forEach((page) => {
+        const parts = page.relativePath.split("/");
+        parts.pop();
+        let node = root;
 
-        const archive = await response.json();
-        const archivePages = Array.isArray(archive) ? archive : archive.pages;
-        const archiveSections = Array.isArray(archive) ? [] : archive.lessonSections;
+        parts.forEach((part) => {
+            if (!node.folders.has(part)) {
+                node.folders.set(part, { folders: new Map(), pages: [] });
+            }
 
-        pages = (Array.isArray(archivePages) ? archivePages : []).filter((page) => (
-            typeof page.title === "string"
-            && typeof page.group === "string"
-            && typeof page.path === "string"
-            && page.path.toLocaleLowerCase("fi").endsWith(".html")
-        ));
-        lessonSections = (Array.isArray(archiveSections) ? archiveSections : []).filter((section) => (
-            typeof section.name === "string"
-            && typeof section.label === "string"
-            && typeof section.path === "string"
-        ));
+            node = node.folders.get(part);
+        });
 
-        document.querySelector("#page-count").textContent = pages.length;
-        renderPages();
-    } catch (error) {
-        resultCount.textContent = "Arkistoa ei voitu ladata";
-        emptyState.textContent = "Harjoitusarkiston lataaminen epäonnistui.";
-        emptyState.hidden = false;
-        console.error(error);
-    }
+        node.pages.push(page);
+    });
+
+    return root;
+}
+
+function pageCount(node) {
+    return node.pages.length + [...node.folders.values()]
+        .reduce((total, child) => total + pageCount(child), 0);
 }
 
 function createPageLink(page) {
@@ -99,10 +75,10 @@ function createPageLink(page) {
 
     const copy = document.createElement("span");
     const title = document.createElement("strong");
-    const group = document.createElement("small");
+    const location = document.createElement("small");
     title.textContent = page.title;
-    group.textContent = readableGroup(page.group);
-    copy.append(title, group);
+    location.textContent = `${page.courseName} · ${page.relativePath}`;
+    copy.append(title, location);
 
     const arrow = document.createElement("span");
     arrow.className = "page-item-arrow";
@@ -113,137 +89,195 @@ function createPageLink(page) {
     return link;
 }
 
-function createFolder(folder, folderPages, query, emptyMessage) {
+function createFolder(node, name, path, query, depth = 0) {
     const details = document.createElement("details");
     details.className = "archive-folder";
+    details.dataset.depth = String(depth);
     details.open = query.length > 0;
 
     const summary = document.createElement("summary");
-    const folderIcon = document.createElement("span");
-    const folderCopy = document.createElement("span");
-    const folderTitle = document.createElement("strong");
-    const folderCount = document.createElement("small");
-    const folderArrow = document.createElement("span");
+    const icon = document.createElement("span");
+    const copy = document.createElement("span");
+    const title = document.createElement("strong");
+    const count = document.createElement("small");
+    const arrow = document.createElement("span");
 
-    folderIcon.className = "archive-folder-icon";
-    folderIcon.setAttribute("aria-hidden", "true");
-    folderTitle.textContent = folder.label;
-    folderCount.textContent = folderPages.length === 1
-        ? "1 HTML-tiedosto"
-        : `${folderPages.length} HTML-tiedostoa`;
-    folderCopy.className = "archive-folder-copy";
-    folderCopy.append(folderTitle, folderCount);
-    folderArrow.className = "archive-folder-arrow";
-    folderArrow.setAttribute("aria-hidden", "true");
-    folderArrow.textContent = "+";
-    summary.append(folderIcon, folderCopy, folderArrow);
+    icon.className = "archive-folder-icon";
+    icon.setAttribute("aria-hidden", "true");
+    copy.className = "archive-folder-copy";
+    title.textContent = readableFolderName(name);
+    count.textContent = `${pageCount(node)} HTML-tiedostoa · ${path}`;
+    copy.append(title, count);
+    arrow.className = "archive-folder-arrow";
+    arrow.setAttribute("aria-hidden", "true");
+    arrow.textContent = "+";
+    summary.append(icon, copy, arrow);
 
     const content = document.createElement("div");
     content.className = "archive-folder-content";
 
-    if (folderPages.length === 0) {
-        const message = document.createElement("p");
-        message.className = "archive-folder-empty";
-        message.textContent = emptyMessage;
-        content.append(message);
-    } else {
-        const folderPageList = document.createElement("div");
-        folderPageList.className = "folder-page-list";
-        folderPageList.append(...folderPages.map(createPageLink));
-        content.append(folderPageList);
+    if (node.pages.length > 0) {
+        const pageList = document.createElement("div");
+        pageList.className = "folder-page-list";
+        pageList.append(...node.pages.map(createPageLink));
+        content.append(pageList);
+    }
+
+    if (node.folders.size > 0) {
+        const folderList = document.createElement("div");
+        folderList.className = "nested-folder-list";
+
+        [...node.folders.entries()]
+            .sort(([first], [second]) => first.localeCompare(second, "fi", { numeric: true }))
+            .forEach(([folderName, child]) => {
+                folderList.append(createFolder(
+                    child,
+                    folderName,
+                    `${path}/${folderName}`,
+                    query,
+                    depth + 1
+                ));
+            });
+
+        content.append(folderList);
     }
 
     details.append(summary, content);
     return details;
 }
 
-function lessonFolderData(query) {
-    return lessonSections.flatMap((section) => {
-        const sectionPages = pages.filter((page) => (
-            page.group === "tunti"
-            && page.path.startsWith(`${section.path}/`)
-        ));
-        const folderMatches = `${section.label} ${section.name}`
-            .toLocaleLowerCase("fi")
-            .includes(query);
-        const visiblePages = !query || folderMatches
-            ? sectionPages
-            : sectionPages.filter((page) => matchesSearch(page, query));
+function createCourse(course, coursePages, query) {
+    const tree = createTree(coursePages);
+    const details = document.createElement("details");
+    details.className = `archive-course archive-course-${course.id}`;
+    details.open = activeCourse !== "kaikki" || query.length > 0;
 
-        if (query && !folderMatches && visiblePages.length === 0) {
-            return [];
+    const summary = document.createElement("summary");
+    const badge = document.createElement("span");
+    const copy = document.createElement("span");
+    const title = document.createElement("strong");
+    const description = document.createElement("small");
+    const count = document.createElement("span");
+
+    badge.className = "archive-course-badge";
+    badge.textContent = course.id === "html" ? "</>" : course.id === "css" ? "#" : "JS";
+    copy.className = "archive-course-copy";
+    title.textContent = course.name;
+    description.textContent = course.description;
+    copy.append(title, description);
+    count.className = "archive-course-count";
+    count.textContent = coursePages.length === 1 ? "1 sivu" : `${coursePages.length} sivua`;
+    summary.append(badge, copy, count);
+
+    const content = document.createElement("div");
+    content.className = "archive-course-content";
+
+    if (coursePages.length === 0) {
+        const message = document.createElement("p");
+        message.className = "archive-folder-empty";
+        message.textContent = course.available
+            ? "Hakua vastaavia harjoitussivuja ei löytynyt."
+            : `${course.name}-kansiota tai sen HTML-harjoituksia ei ole vielä lisätty.`;
+        content.append(message);
+    } else {
+        if (tree.pages.length > 0) {
+            const rootPages = document.createElement("div");
+            rootPages.className = "folder-page-list";
+            rootPages.append(...tree.pages.map(createPageLink));
+            content.append(rootPages);
         }
 
-        return [{ ...section, pages: visiblePages }];
-    });
+        const folderList = document.createElement("div");
+        folderList.className = "course-folder-list";
+
+        [...tree.folders.entries()]
+            .sort(([first], [second]) => first.localeCompare(second, "fi", { numeric: true }))
+            .forEach(([folderName, node]) => {
+                folderList.append(createFolder(node, folderName, folderName, query));
+            });
+
+        content.append(folderList);
+    }
+
+    details.append(summary, content);
+    return details;
 }
 
-function pinjaFolderData(query) {
-    const folders = new Map();
-
-    pages.filter((page) => page.group === "pinja").forEach((page) => {
-        const folderPath = folderForPage(page);
-
-        if (!folders.has(folderPath)) {
-            folders.set(folderPath, {
-                name: folderPath.split("/").at(-1),
-                label: readableFolderName(folderPath),
-                path: folderPath,
-                pages: []
-            });
-        }
-
-        folders.get(folderPath).pages.push(page);
+function updateCourseCounts() {
+    courses.forEach((course) => {
+        const count = document.querySelector(`[data-course-count="${course.id}"]`);
+        if (count) count.textContent = course.pageCount;
     });
-
-    return [...folders.values()]
-        .sort((first, second) => first.path.localeCompare(second.path, "fi"))
-        .flatMap((folder) => {
-            const folderMatches = `${folder.label} ${folder.path}`
-                .toLocaleLowerCase("fi")
-                .includes(query);
-            const visiblePages = !query || folderMatches
-                ? folder.pages
-                : folder.pages.filter((page) => matchesSearch(page, query));
-
-            return query && !folderMatches && visiblePages.length === 0
-                ? []
-                : [{ ...folder, pages: visiblePages }];
-        });
 }
 
 function renderPages() {
     const query = search.value.trim().toLocaleLowerCase("fi");
+    const visibleCourses = courses.filter((course) => (
+        activeCourse === "kaikki" || course.id === activeCourse
+    ));
+    const sections = [];
+    let visiblePageCount = 0;
 
-    if (activeFilter === "kaikki") {
-        const visiblePages = pages.filter((page) => matchesSearch(page, query));
-        list.classList.remove("is-folder-view");
-        list.replaceChildren(...visiblePages.map(createPageLink));
-        resultCount.textContent = `${visiblePages.length} / ${pages.length} HTML-tiedostoa`;
-        emptyState.textContent = "Hakua vastaavia HTML-tiedostoja ei löytynyt.";
-        emptyState.hidden = visiblePages.length !== 0;
-        return;
+    visibleCourses.forEach((course) => {
+        const courseNameMatches = `${course.name} ${course.description}`
+            .toLocaleLowerCase("fi")
+            .includes(query);
+        const coursePages = pages.filter((page) => (
+            page.course === course.id
+            && (!query || courseNameMatches || matchesSearch(page, query))
+        ));
+
+        if (query && !courseNameMatches && coursePages.length === 0) return;
+
+        visiblePageCount += coursePages.length;
+        sections.push(createCourse(course, coursePages, query));
+    });
+
+    list.classList.add("is-folder-view", "is-course-view");
+    list.replaceChildren(...sections);
+    resultCount.textContent = `${visiblePageCount} HTML-tiedostoa · ${sections.length} kurssia`;
+    emptyState.textContent = "Hakua vastaavia kursseja, kansioita tai HTML-tiedostoja ei löytynyt.";
+    emptyState.hidden = sections.length !== 0;
+}
+
+function selectCourse(courseId) {
+    activeCourse = courseId;
+    search.value = "";
+
+    filterButtons.forEach((button) => {
+        const isActive = button.dataset.course === courseId;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    renderPages();
+}
+
+async function loadPages() {
+    try {
+        const response = await fetch("main/pages.json", { cache: "no-store" });
+
+        if (!response.ok) throw new Error("Kurssiarkistoa ei löytynyt.");
+
+        const archive = await response.json();
+        courses = Array.isArray(archive.courses) ? archive.courses : [];
+        pages = Array.isArray(archive.pages) ? archive.pages.filter((page) => (
+            typeof page.title === "string"
+            && typeof page.course === "string"
+            && typeof page.path === "string"
+            && typeof page.relativePath === "string"
+            && page.path.toLocaleLowerCase("fi").endsWith(".html")
+        )) : [];
+
+        document.querySelector("#page-count").textContent = pages.length;
+        updateCourseCounts();
+        renderPages();
+    } catch (error) {
+        resultCount.textContent = "Arkistoa ei voitu ladata";
+        emptyState.textContent = "Kurssiarkiston lataaminen epäonnistui.";
+        emptyState.hidden = false;
+        console.error(error);
     }
-
-    const folders = activeFilter === "tunti"
-        ? lessonFolderData(query)
-        : pinjaFolderData(query);
-    const visiblePageCount = folders.reduce((total, folder) => total + folder.pages.length, 0);
-    const emptyMessage = activeFilter === "tunti"
-        ? "Tässä osiossa ei ole vielä HTML-tiedostoja."
-        : "Tässä kansiossa ei ole HTML-tiedostoja.";
-    const pageLabel = visiblePageCount === 1 ? "HTML-tiedosto" : "HTML-tiedostoa";
-    const folderLabel = activeFilter === "tunti"
-        ? (folders.length === 1 ? "osio" : "osiota")
-        : (folders.length === 1 ? "kansio" : "kansiota");
-
-    list.classList.add("is-folder-view");
-    list.replaceChildren(...folders.map((folder) => (
-        createFolder(folder, folder.pages, query, emptyMessage)
-    )));
-    resultCount.textContent = `${visiblePageCount} ${pageLabel} · ${folders.length} ${folderLabel}`;
-    emptyState.textContent = "Hakua vastaavia kansioita tai HTML-tiedostoja ei löytynyt.";
-    emptyState.hidden = folders.length !== 0;
 }
 
 function closeMenu() {
@@ -272,44 +306,20 @@ function updateActiveNavigation() {
 
     sectionIds.forEach((id) => {
         const section = document.querySelector(`#${id}`);
-
-        if (section && section.offsetTop <= readingLine) {
-            activeHash = `#${id}`;
-        }
+        if (section && section.offsetTop <= readingLine) activeHash = `#${id}`;
     });
 
-    if (window.scrollY < 80) {
-        activeHash = "#alku";
-    }
-
+    if (window.scrollY < 80) activeHash = "#alku";
     setActiveNavigation(activeHash);
-}
-
-function selectFilter(filter) {
-    activeFilter = filter;
-    search.value = "";
-
-    filterButtons.forEach((button) => {
-        const isActive = button.dataset.filter === filter;
-        button.classList.toggle("is-active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-    });
-
-    renderPages();
 }
 
 filterButtons.forEach((button) => {
     button.setAttribute("aria-pressed", String(button.classList.contains("is-active")));
-
-    button.addEventListener("click", () => {
-        selectFilter(button.dataset.filter);
-    });
+    button.addEventListener("click", () => selectCourse(button.dataset.course));
 });
 
-archiveFilterLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-        selectFilter(link.dataset.archiveFilter);
-    });
+courseLinks.forEach((link) => {
+    link.addEventListener("click", () => selectCourse(link.dataset.courseFilter));
 });
 
 search.addEventListener("input", renderPages);
@@ -325,7 +335,6 @@ anchorLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
         const hash = link.getAttribute("href");
         const target = document.querySelector(hash);
-
         if (!target) return;
 
         event.preventDefault();
@@ -343,9 +352,7 @@ anchorLinks.forEach((link) => {
 });
 
 document.addEventListener("click", (event) => {
-    if (!mainNav.contains(event.target) && !menuButton.contains(event.target)) {
-        closeMenu();
-    }
+    if (!mainNav.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
 });
 
 document.addEventListener("keydown", (event) => {

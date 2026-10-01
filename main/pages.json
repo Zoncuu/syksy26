@@ -1,274 +1,444 @@
 {
+    "courses": [
+        {
+            "id": "html",
+            "name": "HTML-26",
+            "path": "HTML-26",
+            "description": "HTML-rakenteet, semantiikka, lomakkeet ja multimediasisällöt.",
+            "available": true,
+            "pageCount": 53
+        },
+        {
+            "id": "css",
+            "name": "CSS-26",
+            "path": "CSS-26",
+            "description": "Tyylit, asettelut, responsiivisuus ja visuaaliset harjoitukset.",
+            "available": true,
+            "pageCount": 3
+        },
+        {
+            "id": "javascript",
+            "name": "JavaScript-26",
+            "path": "JavaScript-26",
+            "description": "Vuorovaikutus, ohjelmointilogiikka ja dynaamiset sivut.",
+            "available": false,
+            "pageCount": 0
+        }
+    ],
     "pages": [
         {
             "title": "Tehtävät 1-3",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/harjoitukset_1-3.html",
-            "folder": "pinja-harjoitukset/pages"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/harjoitukset_1-3.html",
+            "relativePath": "pinja-harjoitukset/pages/harjoitukset_1-3.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages"
         },
         {
             "title": "Taulukko",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Osa11/01_harjoitus.html",
-            "folder": "pinja-harjoitukset/pages/Osa11"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Osa11/01_harjoitus.html",
+            "relativePath": "pinja-harjoitukset/pages/Osa11/01_harjoitus.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Osa11"
         },
         {
             "title": "Taulukko",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Osa11/02_harjoitus.html",
-            "folder": "pinja-harjoitukset/pages/Osa11"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Osa11/02_harjoitus.html",
+            "relativePath": "pinja-harjoitukset/pages/Osa11/02_harjoitus.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Osa11"
         },
         {
             "title": "Taulukko",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Osa11/03_harjoitus.html",
-            "folder": "pinja-harjoitukset/pages/Osa11"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Osa11/03_harjoitus.html",
+            "relativePath": "pinja-harjoitukset/pages/Osa11/03_harjoitus.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Osa11"
         },
         {
             "title": "Taulukko",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Osa11/04_harjoitus.html",
-            "folder": "pinja-harjoitukset/pages/Osa11"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Osa11/04_harjoitus.html",
+            "relativePath": "pinja-harjoitukset/pages/Osa11/04_harjoitus.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Osa11"
         },
         {
             "title": "Taulukko",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Osa11/05_harjoitus.html",
-            "folder": "pinja-harjoitukset/pages/Osa11"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Osa11/05_harjoitus.html",
+            "relativePath": "pinja-harjoitukset/pages/Osa11/05_harjoitus.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Osa11"
         },
         {
             "title": "Taulukko",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Osa11/06_harjoitus.html",
-            "folder": "pinja-harjoitukset/pages/Osa11"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Osa11/06_harjoitus.html",
+            "relativePath": "pinja-harjoitukset/pages/Osa11/06_harjoitus.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Osa11"
         },
         {
             "title": "Taulukko",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Osa11/07_harjoitus.html",
-            "folder": "pinja-harjoitukset/pages/Osa11"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Osa11/07_harjoitus.html",
+            "relativePath": "pinja-harjoitukset/pages/Osa11/07_harjoitus.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Osa11"
         },
         {
             "title": "Pohjoinen Suomi",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Rakenneharjoitus/index.html",
-            "folder": "pinja-harjoitukset/pages/Rakenneharjoitus"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Rakenneharjoitus/index.html",
+            "relativePath": "pinja-harjoitukset/pages/Rakenneharjoitus/index.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Rakenneharjoitus"
         },
         {
             "title": "Kuvagalleria",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Rakenneharjoitus/kuvagalleria.html",
-            "folder": "pinja-harjoitukset/pages/Rakenneharjoitus"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Rakenneharjoitus/kuvagalleria.html",
+            "relativePath": "pinja-harjoitukset/pages/Rakenneharjoitus/kuvagalleria.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Rakenneharjoitus"
         },
         {
             "title": "Lomake",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Rakenneharjoitus/lomake.html",
-            "folder": "pinja-harjoitukset/pages/Rakenneharjoitus"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Rakenneharjoitus/lomake.html",
+            "relativePath": "pinja-harjoitukset/pages/Rakenneharjoitus/lomake.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Rakenneharjoitus"
         },
         {
             "title": "Nähtävyydet",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Rakenneharjoitus/nahtavyydet.html",
-            "folder": "pinja-harjoitukset/pages/Rakenneharjoitus"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Rakenneharjoitus/nahtavyydet.html",
+            "relativePath": "pinja-harjoitukset/pages/Rakenneharjoitus/nahtavyydet.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Rakenneharjoitus"
         },
         {
             "title": "Yhteystiedot",
-            "group": "pinja",
-            "path": "pinja-harjoitukset/pages/Rakenneharjoitus/yhteystiedot.html",
-            "folder": "pinja-harjoitukset/pages/Rakenneharjoitus"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Pinja-harjoitukset",
+            "path": "HTML-26/pinja-harjoitukset/pages/Rakenneharjoitus/yhteystiedot.html",
+            "relativePath": "pinja-harjoitukset/pages/Rakenneharjoitus/yhteystiedot.html",
+            "folder": "HTML-26/pinja-harjoitukset/pages/Rakenneharjoitus"
         },
         {
             "title": "Minun eka html-sivu",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_1/eka.html",
-            "folder": "tunti-harjoitukset/pages/osio_1"
-        },
-        {
-            "title": "osio_10 etusivu",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_10/index.html",
-            "folder": "tunti-harjoitukset/pages/osio_10"
-        },
-        {
-            "title": "Minusta",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_10/pages/minusta.html",
-            "folder": "tunti-harjoitukset/pages/osio_10/pages"
-        },
-        {
-            "title": "Yhteystiedot",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_10/pages/yhteys.html",
-            "folder": "tunti-harjoitukset/pages/osio_10/pages"
-        },
-        {
-            "title": "Validointi",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_11/harjoitus1.html",
-            "folder": "tunti-harjoitukset/pages/osio_11"
-        },
-        {
-            "title": "Harjoitus2",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/index.html",
-            "folder": "tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto"
-        },
-        {
-            "title": "Kurssit",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/pages/kurssit.html",
-            "folder": "tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/pages"
-        },
-        {
-            "title": "Yhteystiedot",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/pages/yhteystiedot.html",
-            "folder": "tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/pages"
-        },
-        {
-            "title": "head-harjoitus",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_12/harjoitus1.html",
-            "folder": "tunti-harjoitukset/pages/osio_12"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_1/eka.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_1/eka.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_1"
         },
         {
             "title": "Lempi peli",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_2/lempi_peli.html",
-            "folder": "tunti-harjoitukset/pages/osio_2"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_2/lempi_peli.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_2/lempi_peli.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_2"
         },
         {
             "title": "Tehtäviä”",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_2/tehtava.html",
-            "folder": "tunti-harjoitukset/pages/osio_2"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_2/tehtava.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_2/tehtava.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_2"
         },
         {
             "title": "Joel Tyni",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_3/joeltyni.html",
-            "folder": "tunti-harjoitukset/pages/osio_3"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_3/joeltyni.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_3/joeltyni.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_3"
         },
         {
             "title": "Kuvaharjoittelu",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_3/kuva_harjoitus.html",
-            "folder": "tunti-harjoitukset/pages/osio_3"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_3/kuva_harjoitus.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_3/kuva_harjoitus.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_3"
         },
         {
             "title": "Linkkisivusto",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/index.html",
-            "folder": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/index.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/index.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_3/linkkisivusto-demo"
         },
         {
             "title": "Kuvagalleria",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/kuvagalleria.html",
-            "folder": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/kuvagalleria.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/kuvagalleria.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_3/linkkisivusto-demo"
         },
         {
             "title": "Minusta",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/minusta.html",
-            "folder": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/minusta.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/minusta.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_3/linkkisivusto-demo"
         },
         {
             "title": "Yhteys",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/yhteys.html",
-            "folder": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/yhteys.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_3/linkkisivusto-demo/yhteys.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_3/linkkisivusto-demo"
         },
         {
             "title": "Tuolit",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_4/rakenna_kortti.html",
-            "folder": "tunti-harjoitukset/pages/osio_4"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_4/rakenna_kortti.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_4/rakenna_kortti.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_4"
         },
         {
             "title": "Hei Maailma",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_6/index.html",
-            "folder": "tunti-harjoitukset/pages/osio_6"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_6/index.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_6/index.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_6"
         },
         {
             "title": "Rekisteröityminen",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_7/login.html",
-            "folder": "tunti-harjoitukset/pages/osio_7"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_7/login.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_7/login.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_7"
         },
         {
             "title": "Yhteydenottolomake",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_7/yhteydenottolomake.html",
-            "folder": "tunti-harjoitukset/pages/osio_7"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_7/yhteydenottolomake.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_7/yhteydenottolomake.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_7"
         },
         {
             "title": "Audioharjoitus",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_9/audio_harjoitus.html",
-            "folder": "tunti-harjoitukset/pages/osio_9"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_9/audio_harjoitus.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_9/audio_harjoitus.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_9"
         },
         {
             "title": "Hero-kuva harjoitus",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_9/hero-kuva_harjoitus.html",
-            "folder": "tunti-harjoitukset/pages/osio_9"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_9/hero-kuva_harjoitus.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_9/hero-kuva_harjoitus.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_9"
         },
         {
             "title": "iframe harjoitus",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_9/iframe_harjoitus.html",
-            "folder": "tunti-harjoitukset/pages/osio_9"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_9/iframe_harjoitus.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_9/iframe_harjoitus.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_9"
         },
         {
             "title": "Videoharjoitus",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/osio_9/video_harjoitus.html",
-            "folder": "tunti-harjoitukset/pages/osio_9"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_9/video_harjoitus.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_9/video_harjoitus.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_9"
+        },
+        {
+            "title": "osio_10 etusivu",
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_10/index.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_10/index.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_10"
+        },
+        {
+            "title": "Minusta",
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_10/pages/minusta.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_10/pages/minusta.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_10/pages"
+        },
+        {
+            "title": "Yhteystiedot",
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_10/pages/yhteys.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_10/pages/yhteys.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_10/pages"
+        },
+        {
+            "title": "Validointi",
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_11/harjoitus1.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_11/harjoitus1.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_11"
+        },
+        {
+            "title": "Harjoitus2",
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/index.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/index.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto"
+        },
+        {
+            "title": "Kurssit",
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/pages/kurssit.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/pages/kurssit.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/pages"
+        },
+        {
+            "title": "Yhteystiedot",
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/pages/yhteystiedot.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/pages/yhteystiedot.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_11/rikkinainen-sivusto/pages"
+        },
+        {
+            "title": "head-harjoitus",
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/osio_12/harjoitus1.html",
+            "relativePath": "tunti-harjoitukset/pages/osio_12/harjoitus1.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/osio_12"
         },
         {
             "title": "Tyhjentäminen ja uudelleenpiirtäminen",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe12.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe12.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe12.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
         },
         {
             "title": "Hiiri- ja näppäimistötapahtumat",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe13.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe13.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe13.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
         },
         {
             "title": "Animaatio",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe14.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe14.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe14.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
         },
         {
             "title": "Canvasin reunat ja törmäystarkistus",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe15.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe15.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe15.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
         },
         {
             "title": "Yleiset virheet ja debuggaus",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe16.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe16.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe16.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
         },
         {
             "title": "Saavutettavuus",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe17.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe17.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/aihe17.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
         },
         {
             "title": "Animoitu pallo",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/animoitupallo.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/animoitupallo.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/animoitupallo.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
+        },
+        {
+            "title": "Autopeli",
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/autopeli.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/autopeli.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
         },
         {
             "title": "Autopeli",
@@ -278,107 +448,93 @@
         },
         {
             "title": "Canva-esimerkki",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/canvas.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/canvas.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/canvas.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
         },
         {
             "title": "Canvas-peli",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/canvaspeli.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/canvaspeli.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/canvaspeli.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
         },
         {
             "title": "Piirto-ohjelma",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/piirto-ohjelma.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/piirto-ohjelma.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/canvas-harjoitukset/piirto-ohjelma.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/canvas-harjoitukset"
         },
         {
             "title": "SVG:n idea ja HTML",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset/aihe1.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/svg-harjoitukset/aihe1.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset/aihe1.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/svg-harjoitukset"
         },
         {
             "title": "Koordinaatisto ja perusmuodot.",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset/aihe2.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/svg-harjoitukset/aihe2.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset/aihe2.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/svg-harjoitukset"
         },
         {
             "title": "SVG:n idea ja HTML",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset/aihe3.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/svg-harjoitukset/aihe3.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset/aihe3.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/svg-harjoitukset"
         },
         {
             "title": "SVG -lopputyo",
-            "group": "tunti",
-            "path": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset/lopputyo.html",
-            "folder": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset"
-        }
-    ],
-    "lessonSections": [
-        {
-            "name": "osio_1",
-            "label": "Osio 1",
-            "path": "tunti-harjoitukset/pages/osio_1"
+            "course": "html",
+            "courseName": "HTML-26",
+            "source": "Tunti harjoitukset",
+            "path": "HTML-26/tunti-harjoitukset/pages/schoolai/svg-harjoitukset/lopputyo.html",
+            "relativePath": "tunti-harjoitukset/pages/schoolai/svg-harjoitukset/lopputyo.html",
+            "folder": "HTML-26/tunti-harjoitukset/pages/schoolai/svg-harjoitukset"
         },
         {
-            "name": "osio_2",
-            "label": "Osio 2",
-            "path": "tunti-harjoitukset/pages/osio_2"
+            "title": "CSS - freecodecamp",
+            "course": "css",
+            "courseName": "CSS-26",
+            "source": "FreeCodeCamp",
+            "path": "CSS-26/CSS-freecodecamp/chapter1/index.html",
+            "relativePath": "CSS-freecodecamp/chapter1/index.html",
+            "folder": "CSS-26/CSS-freecodecamp/chapter1"
         },
         {
-            "name": "osio_3",
-            "label": "Osio 3",
-            "path": "tunti-harjoitukset/pages/osio_3"
+            "title": "CSS - freecodecamp",
+            "course": "css",
+            "courseName": "CSS-26",
+            "source": "FreeCodeCamp",
+            "path": "CSS-26/CSS-freecodecamp/chapter2/index.html",
+            "relativePath": "CSS-freecodecamp/chapter2/index.html",
+            "folder": "CSS-26/CSS-freecodecamp/chapter2"
         },
         {
-            "name": "osio_4",
-            "label": "Osio 4",
-            "path": "tunti-harjoitukset/pages/osio_4"
-        },
-        {
-            "name": "osio_5",
-            "label": "Osio 5",
-            "path": "tunti-harjoitukset/pages/osio_5"
-        },
-        {
-            "name": "osio_6",
-            "label": "Osio 6",
-            "path": "tunti-harjoitukset/pages/osio_6"
-        },
-        {
-            "name": "osio_7",
-            "label": "Osio 7",
-            "path": "tunti-harjoitukset/pages/osio_7"
-        },
-        {
-            "name": "osio_8",
-            "label": "Osio 8",
-            "path": "tunti-harjoitukset/pages/osio_8"
-        },
-        {
-            "name": "osio_9",
-            "label": "Osio 9",
-            "path": "tunti-harjoitukset/pages/osio_9"
-        },
-        {
-            "name": "osio_10",
-            "label": "Osio 10",
-            "path": "tunti-harjoitukset/pages/osio_10"
-        },
-        {
-            "name": "osio_11",
-            "label": "Osio 11",
-            "path": "tunti-harjoitukset/pages/osio_11"
-        },
-        {
-            "name": "osio_12",
-            "label": "Osio 12",
-            "path": "tunti-harjoitukset/pages/osio_12"
+            "title": "Osio 4",
+            "course": "css",
+            "courseName": "CSS-26",
+            "source": "Tunti harjoitukset",
+            "path": "CSS-26/tunti-harjoitukset/osio_04/index.html",
+            "relativePath": "tunti-harjoitukset/osio_04/index.html",
+            "folder": "CSS-26/tunti-harjoitukset/osio_04"
         }
     ]
 }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG:n idea ja HTML</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../../../main/css/course-footer.css">
+</head>
+<body>
+    <header>
+        <h1>SVG:n idea ja HTML | Aihe 1</h1>
+    </header>
+
+    <main>
+        <svg viewBox="0 0 200 100">  
+            <style>  
+                .laatikko {  
+                fill: #96E6B3;  
+                stroke: #464E47;  
+                stroke-width: 3;
+                height: 100px;  
+                }  
+            </style>  
+            <rect class="laatikko" x="20" y="20" width="80" height="60"/>  
+            <rect class="laatikko" x="120" y="20" width="60" height="60" fill="orange"/>  
+        </svg>
+        <hr>
+
+        <svg viewBox="0 0 200 100">  
+            <circle id="ympyra" cx="100" cy="50" r="30" fill="blue"/>  
+        </svg>
+        <hr>
+
+        <script>  
+            const ympyra = document.getElementById("ympyra");  
+            ympyra.setAttribute("fill", "red");  
+        </script>  
+
+        <svg viewBox="0 0 200 100" role="img" aria-labelledby="otsikko kuvaus">  
+            <title id="otsikko">Auringonlasku</title>  
+            <desc id="kuvaus">Oranssi aurinko laskee sinisen meren taakse.</desc>  
+            <circle cx="100" cy="60" r="30" fill="orange"/>  
+        </svg>
+        <hr>  
+
+        <svg viewBox="0 0 200 100">  
+            <text x="10" y="50" font-size="24" fill="lightgray">Tervetuloa!</text>  
+        </svg>  
+
+    </main>
+
+    <!--ETUSIVUN FOOTER-->
+    <footer class="course-home-footer" aria-label="Kurssinavigaatio">
+        <a href="../../../../../index.html">Etusivulle</a>
+    </footer>
+</body>
+</html>
